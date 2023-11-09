@@ -1,6 +1,5 @@
 html {
   box-sizing: border-box;
-  font-size: 10px;
   background-color: rgb(236, 113, 25);
 }
 
@@ -22,12 +21,12 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 6rem;
+  font-size: calc(3rem + 1vw);
 }
 
 h2 {
   text-align: center;
-  font-size: 4rem;
+  font-size: calc(2rem + 1vw);
 }
 
 .game {
@@ -71,7 +70,7 @@ h2 {
 }
 
 #start {
-  width: 7%;
+  width: calc(15% + 1vw);
   background-color: #000000;
   border: 2px solid #1a1a1a;
   border-radius: 15px;
@@ -79,7 +78,7 @@ h2 {
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-size: 16px;
+  font-size: calc(0.3rem + 1vw);
   font-weight: 600;
   padding: 1rem;
   text-align: center;
@@ -93,4 +92,26 @@ h2 {
 #start:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+#icon {
+  width: 2em;
+  cursor: pointer;
+}
+
+#icon:hover {
+  transform: rotate(360deg) scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7em;
+  position: absolute;
+  bottom: 0;
+  height: 5wh;
+  font-size: calc(0.7rem + 1vw);
 }
