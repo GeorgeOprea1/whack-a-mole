@@ -1,10 +1,11 @@
 const holes = document.querySelectorAll(".hole");
-const score = document.querySelector(".score");
-const moles = document.querySelectorAll(".moles");
+const scoreBoard = document.querySelector(".score");
+const moles = document.querySelectorAll(".mole");
 const startBtn = document.querySelector("#start");
 
 let lastHole;
 let timeUp = false;
+let score = 0;
 
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -15,7 +16,6 @@ function randomHoles(holes) {
   const hole = holes[index];
 
   if (hole === lastHole) {
-    console.log("same hole");
     return randomHoles(holes);
   }
 
@@ -24,7 +24,7 @@ function randomHoles(holes) {
 }
 
 function molePop() {
-  const time = randomTime(200, 1000);
+  const time = randomTime(400, 1000);
   const hole = randomHoles(holes);
   hole.classList.add("up");
   setTimeout(() => {
@@ -34,10 +34,19 @@ function molePop() {
 }
 
 function startGame() {
-  score.textContent = 0;
+  scoreBoard.textContent = 0;
   timeUp = false;
+  score = 0;
   molePop();
-  setTimeout(() => (timeUp = true), 2000);
+  setTimeout(() => (timeUp = true), 10000);
 }
 
 startBtn.addEventListener("click", startGame);
+
+function hitTheMole(e) {
+  score++;
+  this.classList.remove("up");
+  scoreBoard.textContent = score;
+}
+
+moles.forEach((mole) => mole.addEventListener("click", hitTheMole));

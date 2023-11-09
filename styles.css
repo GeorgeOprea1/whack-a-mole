@@ -33,15 +33,15 @@ h2 {
 .game {
   width: 600px;
   height: 400px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto;
+  gap: 2rem;
 }
 .hole {
   flex: 1 0 33.33%;
   overflow: hidden;
   position: relative;
-  border: 2px solid red;
 }
 
 .hole::after {
