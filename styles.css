@@ -117,3 +117,37 @@ h2 {
   height: 5wh;
   font-size: calc(0.4rem + 1vw);
 }
+
+.levels {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.level {
+  width: calc(10% + 1vw);
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: calc(0.2rem + 0.5vw);
+  font-weight: 600;
+  padding: 1rem;
+  text-align: center;
+}
+
+#easy {
+  background-color: #24b30e;
+}
+
+#medium {
+  background-color: #ecf317;
+  color: #000000;
+}
+
+#expert {
+  background-color: #f40000;
+}
