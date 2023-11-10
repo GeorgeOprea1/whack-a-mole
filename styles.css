@@ -21,21 +21,23 @@ body {
 
 h1 {
   text-align: center;
-  font-size: calc(3rem + 1vw);
+  font-size: calc(2rem + 1vw);
+  margin-top: 1rem;
 }
 
 h2 {
   text-align: center;
-  font-size: calc(2rem + 1vw);
+  font-size: calc(1rem + 1vw);
 }
 
 .game {
-  width: 600px;
-  height: 400px;
+  width: 800px;
+  height: 600px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto;
   gap: 2rem;
+  margin-top: 2rem;
 }
 .hole {
   flex: 1 0 33.33%;
@@ -66,11 +68,11 @@ h2 {
 }
 
 .hole.up .mole {
-  top: -12%;
+  top: -4%;
 }
 
 #start {
-  width: calc(15% + 1vw);
+  width: calc(10% + 1vw);
   background-color: #000000;
   border: 2px solid #1a1a1a;
   border-radius: 15px;
@@ -113,5 +115,5 @@ h2 {
   position: absolute;
   bottom: 0;
   height: 5wh;
-  font-size: calc(0.7rem + 1vw);
+  font-size: calc(0.4rem + 1vw);
 }
