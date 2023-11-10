@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1 class="title">Whack-a-mole</h1>
-    <h2>Score: <span class="score">0</span></h2>
-    <div class="levels">
-      <button id="easy" class="level">Easy</button>
-      <button id="medium" class="level">Medium</button>
-
-      <button id="expert" class="level">Expert</button>
+    <div class="header">
+      <h1 class="title">Whack-a-mole</h1>
+      <h2>Score: <span class="score">0</span></h2>
     </div>
-    <button id="start">Start</button>
+    <div class="buttons">
+      <div class="levelsBtn">
+        <button id="easy" class="level">Easy</button>
+        <button id="medium" class="level">Medium</button>
+        <button id="expert" class="level">Expert</button>
+      </div>
+      <div class="game-time">
+        <label class="label" for="input">Choose time</label>
+        <input type="number" name="input" id="input" required />
+        <button id="select">Select</button>
+      </div>
+      <button id="start">Start</button>
+    </div>
     <div class="game">
       <div class="hole hole1">
         <div class="mole"></div>

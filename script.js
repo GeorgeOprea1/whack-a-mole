@@ -5,6 +5,8 @@ const startBtn = document.querySelector("#start");
 const easyBtn = document.querySelector("#easy");
 const mediumBtn = document.querySelector("#medium");
 const expertBtn = document.querySelector("#expert");
+const selectBtn = document.querySelector("#select");
+const input = document.querySelector("#input");
 
 let lastHole;
 let timeUp = false;
@@ -12,6 +14,7 @@ let score = 0;
 let easy = true;
 let medium = false;
 let expert = false;
+let gameTime;
 
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -52,7 +55,8 @@ function startGame() {
   timeUp = false;
   score = 0;
   molePop();
-  setTimeout(() => (timeUp = true), 30000);
+  setTimeout(() => (timeUp = true), gameTime);
+  input.value = "";
 }
 
 startBtn.addEventListener("click", startGame);
@@ -85,3 +89,10 @@ expertBtn.addEventListener("click", function () {
   expert = true;
   console.log(easy, medium, expert);
 });
+
+function getGameTime() {
+  gameTime = input.value * 1000;
+  console.log(gameTime);
+}
+
+selectBtn.addEventListener("click", getGameTime);
