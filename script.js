@@ -5,8 +5,13 @@ const startBtn = document.querySelector("#start");
 const easyBtn = document.querySelector("#easy");
 const mediumBtn = document.querySelector("#medium");
 const expertBtn = document.querySelector("#expert");
-const selectBtn = document.querySelector("#select");
 const input = document.querySelector("#input");
+const timer = document.querySelector(".timer");
+const playAgainBtn = document.querySelector("#play-again");
+const gameBoard = document.querySelector(".game");
+const resultBoard = document.querySelector(".final-results");
+const finalScore = document.querySelector(".final-score");
+const buttons = document.querySelector(".buttons");
 
 let lastHole;
 let timeUp = false;
@@ -15,6 +20,8 @@ let easy = true;
 let medium = false;
 let expert = false;
 let gameTime;
+let count;
+let inputValue;
 
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -51,12 +58,19 @@ function molePop() {
 }
 
 function startGame() {
-  scoreBoard.textContent = 0;
   timeUp = false;
-  score = 0;
-  molePop();
-  setTimeout(() => (timeUp = true), gameTime);
-  input.value = "";
+  inputValue = input.value;
+  if (!inputValue) {
+    alert("plese select the game time");
+    location.reload();
+  } else {
+    timer.textContent = inputValue;
+    gameTime = inputValue * 1000;
+    molePop();
+    setTimeout(() => (timeUp = true), gameTime);
+    countDown();
+    buttons.style.display = "none";
+  }
 }
 
 startBtn.addEventListener("click", startGame);
@@ -65,6 +79,7 @@ function hitTheMole(e) {
   score++;
   this.classList.remove("up");
   scoreBoard.textContent = score;
+  count;
 }
 
 moles.forEach((mole) => mole.addEventListener("click", hitTheMole));
@@ -74,6 +89,7 @@ easyBtn.addEventListener("click", function () {
   medium = false;
   expert = false;
   console.log(easy, medium, expert);
+  console.log("this is input value" + input.value);
 });
 
 mediumBtn.addEventListener("click", function () {
@@ -90,9 +106,23 @@ expertBtn.addEventListener("click", function () {
   console.log(easy, medium, expert);
 });
 
-function getGameTime() {
-  gameTime = input.value * 1000;
-  console.log(gameTime);
+let countDownTimer = setInterval(countDown, 1000);
+
+function countDown() {
+  inputValue--;
+  timer.textContent = inputValue;
+
+  if (inputValue <= 0) {
+    clearInterval(countDownTimer);
+    gameBoard.style.display = "none";
+    buttons.style.display = "none";
+    resultBoard.style.display = "block";
+    console.log("Game Over");
+    finalScore.textContent = "Your final score is: " + score;
+  }
 }
 
-selectBtn.addEventListener("click", getGameTime);
+playAgainBtn.addEventListener("click", function () {
+  location.reload();
+  buttons.style.display = "";
+});

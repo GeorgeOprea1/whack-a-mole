@@ -10,40 +10,49 @@
     <div class="header">
       <h1 class="title">Whack-a-mole</h1>
       <h2>Score: <span class="score">0</span></h2>
-    </div>
-    <div class="buttons">
-      <div class="levelsBtn">
-        <button id="easy" class="level">Easy</button>
-        <button id="medium" class="level">Medium</button>
-        <button id="expert" class="level">Expert</button>
-      </div>
       <div class="game-time">
-        <label class="label" for="input">Choose time</label>
-        <input type="number" name="input" id="input" required />
-        <button id="select">Select</button>
+        <label class="label" for="input">Select time</label>
+        <input type="number" name="input" id="input" />
+        <div class="timer">0</div>
       </div>
-      <button id="start">Start</button>
-    </div>
-    <div class="game">
-      <div class="hole hole1">
-        <div class="mole"></div>
-      </div>
-      <div class="hole hole2">
-        <div class="mole"></div>
-      </div>
-      <div class="hole hole3">
-        <div class="mole"></div>
-      </div>
-      <div class="hole hole4">
-        <div class="mole"></div>
-      </div>
-      <div class="hole hole5">
-        <div class="mole"></div>
-      </div>
-      <div class="hole hole6">
-        <div class="mole"></div>
+      <div class="buttons">
+        Select level
+        <div class="levelsBtn">
+          <button id="easy" class="level">Easy</button>
+          <button id="medium" class="level">Medium</button>
+          <button id="expert" class="level">Expert</button>
+          <button id="start">Start</button>
+        </div>
       </div>
     </div>
+    <div class="game-container">
+      <div class="game">
+        <div class="hole hole1">
+          <div class="mole"></div>
+        </div>
+        <div class="hole hole2">
+          <div class="mole"></div>
+        </div>
+        <div class="hole hole3">
+          <div class="mole"></div>
+        </div>
+        <div class="hole hole4">
+          <div class="mole"></div>
+        </div>
+        <div class="hole hole5">
+          <div class="mole"></div>
+        </div>
+        <div class="hole hole6">
+          <div class="mole"></div>
+        </div>
+      </div>
+      <div class="final-results">
+        <h1>Game over</h1>
+        <h2 class="final-score"></h2>
+        <button id="play-again">Play again</button>
+      </div>
+    </div>
+
     <footer class="footer">
       <p>Copyright GeorgeOprea 2023</p>
       <a href="https://github.com/GeorgeOprea1/whack-a-mole" target="_blank">
