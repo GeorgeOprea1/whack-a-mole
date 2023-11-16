@@ -61,9 +61,10 @@ function startGame() {
   timeUp = false;
   inputValue = input.value;
   if (!inputValue) {
-    alert("plese select the game time");
+    alert("Please select the game time");
     location.reload();
   } else {
+    timer.style.display = "block";
     timer.textContent = inputValue;
     gameTime = inputValue * 1000;
     molePop();
@@ -125,4 +126,5 @@ function countDown() {
 playAgainBtn.addEventListener("click", function () {
   location.reload();
   buttons.style.display = "";
+  timer.style.display = "none";
 });
