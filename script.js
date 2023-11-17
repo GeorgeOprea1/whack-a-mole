@@ -12,6 +12,8 @@ const gameBoard = document.querySelector(".game");
 const resultBoard = document.querySelector(".final-results");
 const finalScore = document.querySelector(".final-score");
 const buttons = document.querySelector(".buttons");
+const level = document.querySelector(".level");
+const levelSelected = document.querySelector(".level-selected");
 
 let lastHole;
 let timeUp = false;
@@ -65,6 +67,7 @@ function startGame() {
     location.reload();
   } else {
     timer.style.display = "block";
+    levelSelected.style.display = "block";
     timer.textContent = inputValue;
     gameTime = inputValue * 1000;
     molePop();
@@ -89,21 +92,31 @@ easyBtn.addEventListener("click", function () {
   easy = true;
   medium = false;
   expert = false;
-  console.log(easy, medium, expert);
-  console.log("this is input value" + input.value);
+  easyBtn.classList.toggle("level-clicked");
+  mediumBtn.classList.remove("level-clicked");
+  expertBtn.classList.remove("level-clicked");
+  levelSelected.textContent = easyBtn.value;
 });
 
 mediumBtn.addEventListener("click", function () {
   medium = true;
   easy = false;
   expert = false;
+  mediumBtn.classList.toggle("level-clicked");
+  easyBtn.classList.remove("level-clicked");
+  expertBtn.classList.remove("level-clicked");
   console.log(easy, medium, expert);
+  levelSelected.textContent = mediumBtn.value;
 });
 
 expertBtn.addEventListener("click", function () {
   easy = false;
   medium = false;
   expert = true;
+  expertBtn.classList.toggle("level-clicked");
+  easyBtn.classList.remove("level-clicked");
+  mediumBtn.classList.remove("level-clicked");
+  levelSelected.textContent = expertBtn.value;
   console.log(easy, medium, expert);
 });
 
@@ -127,4 +140,5 @@ playAgainBtn.addEventListener("click", function () {
   location.reload();
   buttons.style.display = "";
   timer.style.display = "none";
+  levelSelected.style.display = "none";
 });
